@@ -1,156 +1,104 @@
-let arr = [1, 2, 'new', true, false, 5, 'google', 91, 'word', 'name']
+// for (let i = 0; i < 10; i++) {
+//     document.write(`<div>Блок ${i}: текст<div>`)
+// }
 
-for (let i = 0; i < arr.length; i++) {
-    const el = arr[i];
-    console.log(el);
-}
+// let x = 0
+// while (x < 20){
+//     document.write(`<div>Блок ${x}: текст<div>`)
+//     x++
+// }
+// ----------------------------------------------------
+// let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js']
 
-console.log(...arr);
-// ------------------------------------------------------------------
-const obj = {
-    title: 'Harry Potter',
-    pageCount: 300,
-    genre: 'satira'
-}
-// ------------------------------------------------------------------
-const books = {
-    title: 'Better Call Saul',
-    pageCount: 450, 
-    genre: 'genre', 
-    author: [{name: 'Gilligan',
-              age: 45
-    }]
-}
-// ------------------------------------------------------------------
-const users = [
-    { name: 'Walter', username: 'Heisenberg', password: 'p1' },
-    { name: 'Jessie', username: 'Fugu', password: 'p2' },
-    { name: 'Jimmy', username: 'Saul Goodman', password: 'p3' },
-    { name: 'Gustavo', username: 'Gus', password: 'p4' },
-    { name: 'Skyler', username: 'Bitch', password: 'p5' },
-    { name: 'Todd', username: 'Redhair piggy', password: 'p6' },
-    { name: 'Hank', username: 'Officer Shredure', password: 'p7' },
-    { name: 'Mike', username: 'Legend', password: 'p8' },
-    { name: 'Brok', username: 'Muchacho', password: 'p9' },
-    { name: 'Jane', username: 'Overdrug bitch', password: 'p10' }
-]
+// document.write(`<ul>${listOfItems[2]}`)
 
-for (let i = 0; i < users.length; i++) {
-    const el = users[i].password;
-    console.log(el);
-}
+// for (let i = 0; i < listOfItems.length; i++) {
+//     if (i === 2) {
+//         continue
+//     }
+//     else{
+//         document.write(`<li>${listOfItems[i]}</li>`)
+//     }
+// }
 
-users.forEach(user => console.log(user.password))
-// ------------------------------------------------------------------
-const weatherOfTheWeek = [
-    [10, 15, 20], // Monday
-    [10, 15, 20], // Tuesday
-    [10, 15, 20], // Wednesday
-    [10, 15, 20], // Thursday
-    [10, 15, 20], // Friday
-    [10, 15, 20], // Saturday
-    [10, 15, 20]  // Sunday
-];
-// --------------------------------------------------------------------
-time = -1 //prompt('Enter the time: ')
+// document.write(`</ul>`)
+// ----------------------------------------------------
+// let products = [
+//     {
+//         title: 'milk',
+//         price: 22,
+//         image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+//     },
+//     {
+//         title: 'juice',
+//         price: 27,
+//         image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+//     },
+//     {
+//         title: 'tomato',
+//         price: 47,
+//         image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+//     },
+//     {
+//         title: 'tea',
+//         price: 15,
+//         image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+//     }
+// ];
 
-if (time < 15 && time > 0){
-    console.log('This time belongs to first quater');
-}
-else if (time >= 15 && time < 30){
-    console.log('This time belongs to second quater');
-}
-else if (time >=30 && time < 45){
-    console.log('This time belongs to third quater');
-}
-else if(time >=45 && time < 60){
-    console.log('This time belongs to fourth quater');
-}
-else{
-    console.log('You can only type from 0 to 59');
-}
-// ----------------------------------------------------------------------
-let x = -3
+// document.write(`<div class="products">`); 
 
-if (x != 0){
-    console.log('Respect')
-}
-else{
-    console.log('Disrespect');
-}
-// ------------------------------------------------------------------------
-let day = 16
-if (day > 0 && day < 11){
-    console.log('It\'s first decade');
-}
-else if (day >= 11 && day < 21){
-    console.log('It\'s second decade')
-}
-else if (day >= 21 && day <= 31){
-    console.log('It\'s third decade');
-}
-else{
-    console.log('It`s no where');
-}
-// -----------------------------------------------------------------------
-dayOfWeek = 'Monday' // prompt('Enter the day you want:')
+// for (let i = 0; i < products.length; i++) {
+//     document.write(`
+//         <div class="product-card">
+//             <h3 class="product-title">${products[i].title} - Price: ${products[i].price}</h3>
+//             <img src="${products[i].image}" alt="${products[i].title}" class="product-image"/>
+//         </div>
+//     `);
+// }
 
-switch(dayOfWeek){
-    case 'Monday':
-        console.log('You choice the Monday');
-        break;
-    case 'Tuesday':
-        console.log('You choice the Thuesday');
-        break;
-    case 'Wednesday':
-        console.log('You choice the Wednesday');
-        break;
-    case 'Thursday':
-        console.log('You choice the Thursday');
-        break;
-    case 'Friday':
-        console.log('You choice the Friday');
-        break;
-    case 'Saturday':
-        console.log('You choice the Saturday');
-        break;
-    case 'Sunday':
-        console.log('You choice the Sunday');
-        break;
-    default:
-        console.log('You are invalid');
-        break;
-}
-// --------------------------------------------------------------------------
-firstNumber = prompt('Enter the first number: ')
-secondNumber = prompt('Enter the second number: ')
-if (firstNumber > secondNumber) {
-    console.log(firstNumber);
-}
-else if (firstNumber < secondNumber){
-    console.log(secondNumber);
-}
-else if (firstNumber == secondNumber){
-    console.log(`${firstNumber} = ${secondNumber}`);
-}
-// --------------------------------------------------------------------------
-let random = 5
-if (!random){
-    random = 'default'
-}
-console.log(random)
-// --------------------------------------------------------------------------
-let coursesAndDurationArray = [
-    {title: 'JavaScript Complex', monthDuration: 5},
-    {title: 'Java Complex', monthDuration: 6},
-    {title: 'Python Complex', monthDuration: 6},
-    {title: 'QA Complex', monthDuration: 4},
-    {title: 'FullStack', monthDuration: 7},
-    {title: 'Frontend', monthDuration: 4}
+// document.write(`</div>`); 
+
+// ---------------------------------------------------------
+
+let users = [
+    {name: 'vasya', age: 31, status: false},
+    {name: 'petya', age: 30, status: true},
+    {name: 'kolya', age: 29, status: true},
+    {name: 'olya', age: 28, status: false},
+    {name: 'max', age: 30, status: true},
+    {name: 'anya', age: 31, status: false},
+    {name: 'oleg', age: 28, status: false},
+    {name: 'andrey', age: 29, status: true},
+    {name: 'masha', age: 30, status: true},
+    {name: 'olya', age: 31, status: false},
+    {name: 'max', age: 31, status: true}
 ];
 
-for (let i = 0; i < coursesAndDurationArray.length; i++) {
-    if(coursesAndDurationArray[i].monthDuration > 5){
-        console.log('Super');
+console.log('Тільки true');
+
+for (let key in users){
+    if(users[key].status == true){
+        console.log(users[key])
     }
 }
+
+console.log('Тільки false');
+
+for (let key in users){
+    if(users[key].status !== true){
+        console.log(users[key])
+    }
+}
+
+console.log('Старші 30');
+
+for (let key in users){
+    if(users[key].age > 30){
+        console.log(users[key])
+    }
+}
+//  за допомоги циклу вивести:
+//  - користувачів зі статусом true
+//  - користувачів зі статусом false
+//  - користувачів які старші за 30 років
