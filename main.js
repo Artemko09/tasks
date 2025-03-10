@@ -61,12 +61,51 @@ let users = [
     { id: 5, name: "Eve", age: 35 }
 ];
 
-function divObject(arr){
+function divObject(arr) {
     for (let i = 0; i < arr.length; i++) {
-        document.write(`<div>`)
-        document.write(`<p>${arr[i].id}, ${arr[i].name}, ${arr[i].age}</p>`)
-        document.write(`</div>`)
+        document.write(`<div>`);
+        document.write(`<p>${arr[i].id}, ${arr[i].name}, ${arr[i].age}</p>`);
+        document.write(`</div>`);
     }
 }
 
-divObject(users)
+divObject(users);
+// ---------------------------------
+
+const myArr = [34, 21, 10, 75, 38, 19]
+
+function minEl(array){
+    let min = array[0]
+    for (let i = 1; i < array.length; i++) {
+        if (min > array[i]){
+            min = array[i]
+        }
+    }
+    return min
+}
+
+console.log(minEl(myArr))
+// ---------------------------------
+const ar = [2, 5, 9, 4, 25]
+
+function sumOfArr(array){
+    let sum = array[0]
+    for (let i = 1; i < array.length; i++) {
+        sum += array[i]
+    }
+    return sum
+}
+
+console.log(sumOfArr(ar))
+// ----------------------------------
+function swap(arr, index1, index2) {
+    let temp = arr[index1];
+    
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+    
+    return arr;
+}
+
+const number = [11, 22, 33, 44];
+console.log(swap(number, 0, 1));
