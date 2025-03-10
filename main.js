@@ -1,33 +1,42 @@
-let word = 'hello'
-let word1 = 'owu'
-let word2 = 'com'
-let country = 'ua'
-let num = 1
-let num2 = 10
-let num3 = -999
-let num4 = 123
-const PI = 3.14
-let num5 = 2.7
-let num6 = 16
-let yes = true
-let no = false
-// ----------------------------------------------------------
-let firstName = 'Zhuk'
-let midlleName = 'Artem'
-let lastName = 'Denisovuch'
-let person = firstName + ' ' + midlleName + ' ' + lastName
-let person1 = `${firstName} ${midlleName} ${lastName}`
-let person2 = [firstName, midlleName, lastName].join(' ')
-console.log(person)
-console.log(person1)
-console.log(person2)
-// ---------------------------------------------------------
-let a = 100
-let b = '100'
-let c = true
-console.log(typeof(a), typeof(b), typeof(c));
-// ---------------------------------------------------------
-first = prompt('Enter your first name')
-middle = prompt('Enter your middle name')
-last = prompt('Enter your last name')
-console.log(`${first} ${middle} ${last}`);
+let arr = [1, 2, 'new', true, false, 5, 'google', 91, 'word', 'name']
+
+for (let i = 0; i < arr.length; i++) {
+    const el = arr[i];
+    console.log(el);
+}
+// ------------------------------------------------------------------
+const obj = {
+    title: 'Harry Potter',
+    pageCount: 300,
+    genre: 'satira'
+}
+// ------------------------------------------------------------------
+const books = {
+    title: 'Better Call Saul',
+    pageCount: 450, 
+    genre: 'genre', 
+    author: [{name: 'Gilligan',
+              age: 45
+    }]
+}
+// ------------------------------------------------------------------
+const users = [
+    { name: 'Walter', username: 'Heisenberg', password: 'p1' },
+    { name: 'Jessie', username: 'Fugu', password: 'p2' },
+    { name: 'Jimmy', username: 'Saul Goodman', password: 'p3' },
+    { name: 'Gustavo', username: 'Gus', password: 'p4' },
+    { name: 'Skyler', username: 'Bitch', password: 'p5' },
+    { name: 'Todd', username: 'Redhair piggy', password: 'p6' },
+    { name: 'Hank', username: 'Officer Shredure', password: 'p7' },
+    { name: 'Mike', username: 'Legend', password: 'p8' },
+    { name: 'Brok', username: 'Muchacho', password: 'p9' },
+    { name: 'Jane', username: 'Overdrug bitch', password: 'p10' }
+]
+
+for (let i = 0; i < users.length; i++) {
+    const el = users[i].password;
+    console.log(el);
+}
+
+users.forEach(user => console.log(user.password))
+// ------------------------------------------------------------------
