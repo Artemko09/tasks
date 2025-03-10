@@ -1,104 +1,72 @@
-// for (let i = 0; i < 10; i++) {
-//     document.write(`<div>Блок ${i}: текст<div>`)
-// }
+function area(a, b){
+    return a * b
+}
 
-// let x = 0
-// while (x < 20){
-//     document.write(`<div>Блок ${x}: текст<div>`)
-//     x++
-// }
-// ----------------------------------------------------
-// let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js']
+console.log(area(5, 2))
+// ------------------------------------
+function areaCircle(r){
+    return Math.PI * r ** 2
+}
 
-// document.write(`<ul>${listOfItems[2]}`)
+console.log(areaCircle(5));
+// -----------------------------------
+function areaCylinder(r, h){
+    return 2 * Math.PI * r * (h + r)
+}
 
-// for (let i = 0; i < listOfItems.length; i++) {
-//     if (i === 2) {
-//         continue
-//     }
-//     else{
-//         document.write(`<li>${listOfItems[i]}</li>`)
-//     }
-// }
+console.log(areaCylinder(5, 7))
+// -----------------------------------
+function takeArray(arr){
+    for(let el of arr){
+        console.log(el);
+    }
+}
 
-// document.write(`</ul>`)
-// ----------------------------------------------------
-// let products = [
-//     {
-//         title: 'milk',
-//         price: 22,
-//         image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
-//     },
-//     {
-//         title: 'juice',
-//         price: 27,
-//         image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
-//     },
-//     {
-//         title: 'tomato',
-//         price: 47,
-//         image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
-//     },
-//     {
-//         title: 'tea',
-//         price: 15,
-//         image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
-//     }
-// ];
+array = [1, 2, 3 ,4, 5, 6]
+console.log(takeArray(array));
+// ----------------------------------
+function typeSmth(text){
+    return document.write(`<p>${text}</p>`)
+}
 
-// document.write(`<div class="products">`); 
+typeSmth('Hello, world!')
+// ----------------------------------
+function createList(text, howMuch){
+    document.write(`<ul>`)
+    for (let i = 0; i < howMuch; i++) {
+        document.write(`<li>${text}</li>`)
+    }
+    document.write(`</ul>`)
+}
 
-// for (let i = 0; i < products.length; i++) {
-//     document.write(`
-//         <div class="product-card">
-//             <h3 class="product-title">${products[i].title} - Price: ${products[i].price}</h3>
-//             <img src="${products[i].image}" alt="${products[i].title}" class="product-image"/>
-//         </div>
-//     `);
-// }
+createList('Lol', 3)
+// ----------------------------------
+let arr = [1, 'Hello', true, 25, 'Walter']
 
-// document.write(`</div>`); 
+function createFromArray(array){
+    document.write(`<ul>`)
+    for (const el of array) {
+        document.write(`<li>${el}</li>`)
+    }
+    document.write(`</ul>`)
+}
 
-// ---------------------------------------------------------
-
+createFromArray(arr)
+// ---------------------------------
 let users = [
-    {name: 'vasya', age: 31, status: false},
-    {name: 'petya', age: 30, status: true},
-    {name: 'kolya', age: 29, status: true},
-    {name: 'olya', age: 28, status: false},
-    {name: 'max', age: 30, status: true},
-    {name: 'anya', age: 31, status: false},
-    {name: 'oleg', age: 28, status: false},
-    {name: 'andrey', age: 29, status: true},
-    {name: 'masha', age: 30, status: true},
-    {name: 'olya', age: 31, status: false},
-    {name: 'max', age: 31, status: true}
+    { id: 1, name: "Alice", age: 25 },
+    { id: 2, name: "Bob", age: 30 },
+    { id: 3, name: "Charlie", age: 22 },
+    { id: 4, name: "David", age: 28 },
+    { id: 5, name: "Eve", age: 35 }
 ];
 
-console.log('Тільки true');
-
-for (let key in users){
-    if(users[key].status == true){
-        console.log(users[key])
+function divObject(arr){
+    for (let i = 0; i < arr.length; i++) {
+        document.write(`<div>`)
+        document.write(`<p>${arr[i].id}, ${arr[i].name}, ${arr[i].age}</p>`)
+        document.write(`</div>`)
     }
 }
 
-console.log('Тільки false');
-
-for (let key in users){
-    if(users[key].status !== true){
-        console.log(users[key])
-    }
-}
-
-console.log('Старші 30');
-
-for (let key in users){
-    if(users[key].age > 30){
-        console.log(users[key])
-    }
-}
-//  за допомоги циклу вивести:
-//  - користувачів зі статусом true
-//  - користувачів зі статусом false
-//  - користувачів які старші за 30 років
+divObject(users)
