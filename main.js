@@ -109,3 +109,10 @@ function swap(arr, index1, index2) {
 
 const number = [11, 22, 33, 44];
 console.log(swap(number, 0, 1));
+// // -----------------------------------
+// - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+// Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
+
+function exchange(hryvni, ){
+
+}
