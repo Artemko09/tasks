@@ -113,6 +113,34 @@ console.log(swap(number, 0, 1));
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
 
-function exchange(hryvni, ){
+const valutaVubir = [{currency: 'USD', value: 41.25}, {currency: 'EUR', value: 44.9}, {currency: 'PLN', value: 10.25}]
 
+function exchange(hryvni, arr_vubir){
+    let valuta = prompt('Enter the curency: ')
+        if(valuta == 'USD'){
+            console.log(`You got ${hryvni / arr_vubir[0].value} USD`);
+        }
+        else if (valuta == 'EUR'){
+            console.log(`You got ${hryvni / arr_vubir[1].value} EUR`);
+        }
+        else if (valuta == 'PLN'){
+            console.log(`You got ${hryvni / arr_vubir[2].value} PLN`);
+        }
+    
 }
+
+exchange(1000, valutaVubir)
+
+function exchange(hryvni, array, currency){
+    if(currency == array[0].currency){
+        console.log(`You got ${hryvni / array[0].value} USD`)
+    }
+    else if (currency == array[1].currency){
+        console.log(`You got ${hryvni / array[1].value} EUR`)
+    }
+    else if(currency == array[2].currency){
+        console.log(`You got ${hryvni / array[2].value} PLN`)
+    }
+}
+
+exchange(10000, valutaVubir,'PLN')
