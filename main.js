@@ -113,3 +113,86 @@ const secondDriver = {
 }
 firstCar.addDriver(secondDriver)
 // --------------------------------------------------
+
+// #zg6Fifnqig
+// -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
+// Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+// За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+// Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+
+class Popelushka {
+    constructor(name, age, size){
+        this.name = name
+        this.age = age
+        this.size = size
+    }
+}
+
+class Prince{
+    constructor(name, age, sizeFound){
+        this.name = name
+        this.age = age
+        this.sizeFound = sizeFound
+    }
+}
+
+const popelushkas = [];
+for (let i = 1; i <= 10; i++) {
+    const name = `Popelushka ${i}`;
+    const age = 18 + i; 
+    const size = 32 + i; 
+    popelushkas.push(new Popelushka(name, age, size));
+}
+
+const mainPrince = new Prince('Artur', 25, 35)
+
+console.log(popelushkas);
+
+for (const popelushka of popelushkas) {
+    if (popelushka.size == mainPrince.sizeFound) {
+        console.log(`Legendary business my friend! You found her:  ${popelushka.name}`);
+        break
+    }
+    else{
+        console.log('Skipped'); 
+    }
+}
+
+const answer = popelushkas.find((popelushka) => popelushka.size == mainPrince.sizeFound)
+if (answer) {
+    console.log(`Legendary business my friend! You found her with method find: ${answer.name}`);
+}
+else{
+    console.log("No match found using find.");
+}
+
+// -----------------------------------------
+// Створити власний forEach та filter
+const nums = [1, 2, 3, 4, 5, 6, 7, 8];
+// nums.forEach((num, index, arr) => arr[index] = num ** 2);
+// console.log(nums);
+
+
+Array.prototype.myOwnForEach = function(callback){
+    for (let i = 0; i < this.length; i++) {
+        callback(this[i], i, this)
+    }
+}
+
+nums.myOwnForEach((num, index) => {
+    console.log(`Element at index ${index} is ${num ** 2}`);
+});
+
+Array.prototype.myOwnFilter = function(callback) {
+    const newArr = [];  
+    for (let i = 0; i < this.length; i++) { 
+        const num = this[i]; 
+        if (callback(num, i, this)) { 
+            newArr.push(num); 
+        }
+    }
+    return newArr; 
+}
+
+const result = nums.myOwnFilter(num => num > 3)
+console.log(result);
