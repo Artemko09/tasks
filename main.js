@@ -61,3 +61,104 @@ const addIdCourses = coursesAndDurationArray.map((course, index) => ({
 console.log(coursesAndDurationArray);
 console.log(longCourses);
 console.log(addIdCourses);
+// -------------------------------------
+
+const deck = [
+    { cardSuit: 'spade', value: '6', color: 'black' },
+    { cardSuit: 'spade', value: '7', color: 'black' },
+    { cardSuit: 'spade', value: '8', color: 'black' },
+    { cardSuit: 'spade', value: '9', color: 'black' },
+    { cardSuit: 'spade', value: '10', color: 'black' },
+    { cardSuit: 'spade', value: 'jack', color: 'black' },
+    { cardSuit: 'spade', value: 'queen', color: 'black' },
+    { cardSuit: 'spade', value: 'king', color: 'black' },
+    { cardSuit: 'spade', value: 'ace', color: 'black' },
+
+    { cardSuit: 'diamond', value: '6', color: 'red' },
+    { cardSuit: 'diamond', value: '7', color: 'red' },
+    { cardSuit: 'diamond', value: '8', color: 'red' },
+    { cardSuit: 'diamond', value: '9', color: 'red' },
+    { cardSuit: 'diamond', value: '10', color: 'red' },
+    { cardSuit: 'diamond', value: 'jack', color: 'red' },
+    { cardSuit: 'diamond', value: 'queen', color: 'red' },
+    { cardSuit: 'diamond', value: 'king', color: 'red' },
+    { cardSuit: 'diamond', value: 'ace', color: 'red' },
+
+    { cardSuit: 'heart', value: '6', color: 'red' },
+    { cardSuit: 'heart', value: '7', color: 'red' },
+    { cardSuit: 'heart', value: '8', color: 'red' },
+    { cardSuit: 'heart', value: '9', color: 'red' },
+    { cardSuit: 'heart', value: '10', color: 'red' },
+    { cardSuit: 'heart', value: 'jack', color: 'red' },
+    { cardSuit: 'heart', value: 'queen', color: 'red' },
+    { cardSuit: 'heart', value: 'king', color: 'red' },
+    { cardSuit: 'heart', value: 'ace', color: 'red' },
+
+    { cardSuit: 'clubs', value: '6', color: 'black' },
+    { cardSuit: 'clubs', value: '7', color: 'black' },
+    { cardSuit: 'clubs', value: '8', color: 'black' },
+    { cardSuit: 'clubs', value: '9', color: 'black' },
+    { cardSuit: 'clubs', value: '10', color: 'black' },
+    { cardSuit: 'clubs', value: 'jack', color: 'black' },
+    { cardSuit: 'clubs', value: 'queen', color: 'black' },
+    { cardSuit: 'clubs', value: 'king', color: 'black' },
+    { cardSuit: 'clubs', value: 'ace', color: 'black' }
+];
+
+// описати колоду карт (від 6 до туза без джокерів)
+// - знайти піковий туз
+// - всі шістки
+// - всі червоні карти
+// - всі буби
+// - всі трефи від 9 та більше
+
+const spadeAce = deck.find(card => {
+    return card.value === 'ace' && card.cardSuit === 'spade'
+})
+
+console.log(spadeAce);
+
+const onlySix = deck.filter(card => {
+    return card.value === '6'
+})
+
+console.log(onlySix);
+
+const onlyDiamond = deck.filter(card => {
+    return card.cardSuit === 'diamond'
+})
+
+console.log(onlyDiamond);
+
+const onlyRed = deck.filter(card => {
+    return card.color === 'red'
+})
+
+console.log(onlyRed);
+
+const onlyClubsMoreTheNine = deck.filter(card => 
+    card.cardSuit === 'clubs' && ['9', '10', 'jack', 'queen', 'king', 'ace'].includes(card.value)
+)
+
+console.log(onlyClubsMoreTheNine);
+// --------------------------------------------------------
+
+// Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+// {
+//     spades:[],
+//     diamonds:[],
+//     hearts:[],
+//     clubs:[]
+// }
+
+const groupedCards = deck.reduce((acc, card) => {
+    acc[card.cardSuit].push(card);
+    return acc;
+}, {
+    spade: [],
+    diamond: [],
+    heart: [],
+    clubs: []
+});
+
+console.log(groupedCards);
