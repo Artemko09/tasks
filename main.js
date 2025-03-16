@@ -1,164 +1,115 @@
-console.log('hello world'.length);
-console.log('lorem ipsum'.length);
-console.log('javascript is cool'.length);
-// --------------------------------------
-console.log('hello world'.toUpperCase());
-console.log('lorem ipsum'.toUpperCase());
-console.log('javascript is cool'.toUpperCase());
-// --------------------------------------
-console.log('HELLO WORLD'.toLowerCase());
-console.log('LOREM IPSUM'.toLowerCase());
-console.log('JAVASCRIPT IS COOL'.toLowerCase());
-// --------------------------------------
-let str = '           dirty string   '
-console.log(str);
-console.log(str.trim());
-// --------------------------------------
-let str_2 = 'Ревуть воли як ясла повні'
-
-const stringToArray = (str) => {
-    return console.log(str.split(' '))
-}
-
-stringToArray(str_2)
-// --------------------------------------
-const nums = [10, 8, -7, 55, 987, -1011, 0, 1050, 0]
-const strNums = nums.map(num => num.toString())
-console.log(nums);
-console.log(strNums);
-// --------------------------------------
-let num1 = [11,21,3];
-const sortNums = (arr, choice) => {
-    if(choice == '+'){
-        console.log(arr.sort((a, b) => a - b))
-    }
-    else if(choice == '-'){
-        console.log(arr.sort((a, b) => b - a))
+class User{
+    constructor (id, name, surname, email, phone){
+    this.id = id
+    this.name = name
+    this.surname = surname
+    this.email = email
+    this.phone = phone
     }
 }
 
-sortNums(num1, '+')
-sortNums(num1, '-')
-// -------------------------------------
-let coursesAndDurationArray = [
-    {title: 'JavaScript Complex', monthDuration: 5},
-    {title: 'Java Complex', monthDuration: 6},
-    {title: 'Python Complex', monthDuration: 6},
-    {title: 'QA Complex', monthDuration: 4},
-    {title: 'FullStack', monthDuration: 7},
-    {title: 'Frontend', monthDuration: 4}
-];
+const users = []
 
-coursesAndDurationArray.sort((a, b) => b.monthDuration - a.monthDuration)
-let longCourses = coursesAndDurationArray.filter(cours => cours.monthDuration >= 5)
-const addIdCourses = coursesAndDurationArray.map((course, index) => ({
-    id: index += 1,
-    title: course.title, 
-    monthDuration: course.monthDuration
-}))
+const usernames = ["John", "Alice", "Bob", "Emma", "Michael", "Sophia", "David", "Olivia", "Daniel", "Emily"];
+const surnames = ["Smith", "Johnson", "Brown", "Williams", "Jones", "Davis", "Miller", "Wilson", "Moore", "Taylor"];
+const emails = usernames.map(name => `${name.toLowerCase()}@example.com`);
+const phones = ["+1234567890", "+0987654321", "+1122334455", "+2233445566", "+3344556677", "+4455667788", "+5566778899", "+6677889900", "+7788990011", "+8899001122"];
 
+for (let i = 0; i < 10; i++) {
+    users.push(new User(i + 1, usernames[i], surnames[i], emails[i], phones[i]));
+}
 
-console.log(coursesAndDurationArray);
-console.log(longCourses);
-console.log(addIdCourses);
-// -------------------------------------
+console.log(users);
 
-const deck = [
-    { cardSuit: 'spade', value: '6', color: 'black' },
-    { cardSuit: 'spade', value: '7', color: 'black' },
-    { cardSuit: 'spade', value: '8', color: 'black' },
-    { cardSuit: 'spade', value: '9', color: 'black' },
-    { cardSuit: 'spade', value: '10', color: 'black' },
-    { cardSuit: 'spade', value: 'jack', color: 'black' },
-    { cardSuit: 'spade', value: 'queen', color: 'black' },
-    { cardSuit: 'spade', value: 'king', color: 'black' },
-    { cardSuit: 'spade', value: 'ace', color: 'black' },
+const onlyEvenId = users.filter(user => user.id % 2 == 0)
+console.log(onlyEvenId)
+const sortedUsers = users.sort((a, b) => b.id - a.id)
+console.log(sortedUsers);
 
-    { cardSuit: 'diamond', value: '6', color: 'red' },
-    { cardSuit: 'diamond', value: '7', color: 'red' },
-    { cardSuit: 'diamond', value: '8', color: 'red' },
-    { cardSuit: 'diamond', value: '9', color: 'red' },
-    { cardSuit: 'diamond', value: '10', color: 'red' },
-    { cardSuit: 'diamond', value: 'jack', color: 'red' },
-    { cardSuit: 'diamond', value: 'queen', color: 'red' },
-    { cardSuit: 'diamond', value: 'king', color: 'red' },
-    { cardSuit: 'diamond', value: 'ace', color: 'red' },
+class Client{
+    constructor(id, name, surname, email, phone, order){
+        this.id = id
+        this.name = name
+        this.surname = surname
+        this.email = email
+        this.phone = phone
+        this.order = order
+    }
+}
 
-    { cardSuit: 'heart', value: '6', color: 'red' },
-    { cardSuit: 'heart', value: '7', color: 'red' },
-    { cardSuit: 'heart', value: '8', color: 'red' },
-    { cardSuit: 'heart', value: '9', color: 'red' },
-    { cardSuit: 'heart', value: '10', color: 'red' },
-    { cardSuit: 'heart', value: 'jack', color: 'red' },
-    { cardSuit: 'heart', value: 'queen', color: 'red' },
-    { cardSuit: 'heart', value: 'king', color: 'red' },
-    { cardSuit: 'heart', value: 'ace', color: 'red' },
+const clients = []
 
-    { cardSuit: 'clubs', value: '6', color: 'black' },
-    { cardSuit: 'clubs', value: '7', color: 'black' },
-    { cardSuit: 'clubs', value: '8', color: 'black' },
-    { cardSuit: 'clubs', value: '9', color: 'black' },
-    { cardSuit: 'clubs', value: '10', color: 'black' },
-    { cardSuit: 'clubs', value: 'jack', color: 'black' },
-    { cardSuit: 'clubs', value: 'queen', color: 'black' },
-    { cardSuit: 'clubs', value: 'king', color: 'black' },
-    { cardSuit: 'clubs', value: 'ace', color: 'black' }
-];
-
-// описати колоду карт (від 6 до туза без джокерів)
-// - знайти піковий туз
-// - всі шістки
-// - всі червоні карти
-// - всі буби
-// - всі трефи від 9 та більше
-
-const spadeAce = deck.find(card => {
-    return card.value === 'ace' && card.cardSuit === 'spade'
-})
-
-console.log(spadeAce);
-
-const onlySix = deck.filter(card => {
-    return card.value === '6'
-})
-
-console.log(onlySix);
-
-const onlyDiamond = deck.filter(card => {
-    return card.cardSuit === 'diamond'
-})
-
-console.log(onlyDiamond);
-
-const onlyRed = deck.filter(card => {
-    return card.color === 'red'
-})
-
-console.log(onlyRed);
-
-const onlyClubsMoreTheNine = deck.filter(card => 
-    card.cardSuit === 'clubs' && ['9', '10', 'jack', 'queen', 'king', 'ace'].includes(card.value)
+clients.push(
+    new Client(1, 'Jhon', 'Doe', 'smth@gmail.com', '+1234567890', ['Laptop', 'PC']),
+    new Client(2, "Jane", "Smith", "jane.smith@example.com", "+987654321", ["Phone", "Charger", 'smth']),
+    new Client(3, "Michael", "Brown", "michael.brown@example.com", "+111222333", ["Tablet"]),
+    new Client(4, "Emily", "Johnson", "emily.johnson@example.com", "+444555666", ["Monitor", "Keyboard", 'smth', 'smth']),
+    new Client(5, "David", "White", "david.white@example.com", "+777888999", ["Headphones"]),
+    new Client(6, "Sarah", "Wilson", "sarah.wilson@example.com", "+333222111", ["Camera", "Tripod"]),
+    new Client(7, "Robert", "Lee", "robert.lee@example.com", "+666555444", ["Smartwatch", 'smth', 'smth', 'smth', 'smth', 'smth']),
+    new Client(8, "Laura", "Taylor", "laura.taylor@example.com", "+888777666", ["Printer", "Ink", 'smth', 'smth']),
+    new Client(9, "Daniel", "Martinez", "daniel.martinez@example.com", "+555444333", ["Speakers", 'smth']),
+    new Client(10, "Olivia", "Anderson", "olivia.anderson@example.com", "+999888777", ["Game Console", 'smth', 'smth'])
 )
 
-console.log(onlyClubsMoreTheNine);
-// --------------------------------------------------------
+console.log(clients)
 
-// Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
-// {
-//     spades:[],
-//     diamonds:[],
-//     hearts:[],
-//     clubs:[]
-// }
+const sortOrder = clients.sort((a, b) => a.order.length - b.order.length)
+console.log(sortOrder);
 
-const groupedCards = deck.reduce((acc, card) => {
-    acc[card.cardSuit].push(card);
-    return acc;
-}, {
-    spade: [],
-    diamond: [],
-    heart: [],
-    clubs: []
-});
+class Car {
+    constructor(model, creator, year, maxSpeed, engineCapacity) {
+        this.model = model;
+        this.creator = creator;
+        this.year = year;
+        this.maxSpeed = maxSpeed;
+        this.engineCapacity = engineCapacity;
+        this.drivers = [];
+    }
 
-console.log(groupedCards);
+    drive() {
+        console.log(`WE ARE DRIVING WITH ${this.maxSpeed} km/h`);
+    }
+
+    info() {
+        console.log(` Model: ${this.model}\n`, 
+                    `Creator: ${this.creator}\n`, 
+                    `Year: ${this.year}\n`, 
+                    `Maximum speed: ${this.maxSpeed} km/h\n`, 
+                    `Engine capacity: ${this.engineCapacity} L`);
+    }
+
+    increaseMaxSpeed(speed) {
+        this.maxSpeed += speed;
+    }
+
+    changeYear(newYear) {
+        this.year = newYear;
+    }
+
+    addDriver(driver) {
+        this.drivers.push(driver);
+    }
+}
+
+const firstCar = new Car('P1', 'McLaren', 2013, 500, 3.8)
+console.log(firstCar);
+firstCar.info()
+firstCar.increaseMaxSpeed(100)
+firstCar.changeYear(2018)
+firstCar.info()
+const firstDriver = {
+    name: 'Oscar Piastri',
+    driver: 'Second driver', 
+    age: 21, 
+    team: 'McLaren'
+}
+firstCar.addDriver(firstDriver)
+const secondDriver = {
+    name: 'Lando Norris',
+    driver: 'First driver', 
+    age: 24, 
+    team: 'McLaren'
+}
+firstCar.addDriver(secondDriver)
+// --------------------------------------------------
