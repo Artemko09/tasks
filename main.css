@@ -60,3 +60,21 @@ body{
     margin-top: 5px;
     font-style: italic;
 }
+
+#counter {
+    font-size: 32px; 
+    font-weight: bold; 
+    color: #4CAF50; 
+    background-color: #f1f1f1;
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    display: inline-block; 
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.2s ease-in-out; 
+}
+
+#counter:hover {
+    transform: scale(1.1); 
+    cursor: pointer; 
+}
