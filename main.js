@@ -149,26 +149,26 @@ localStorage.setItem('counter', counter);
 blockWithNumber.textContent = counter;
 document.body.appendChild(blockWithNumber);
 
-let sessionsList = JSON.parse(localStorage.getItem('sessionsList')) || [];
-let currentTime = new Date().toLocaleString();
-sessionsList.push(currentTime); 
-localStorage.setItem('sessionsList', JSON.stringify(sessionsList));
-let sessionsListContainer = document.getElementById('sessions-list-container');
+// let sessionsList = JSON.parse(localStorage.getItem('sessionsList')) || [];
+// let currentTime = new Date().toLocaleString();
+// sessionsList.push(currentTime); 
+// localStorage.setItem('sessionsList', JSON.stringify(sessionsList));
+// let sessionsListContainer = document.getElementById('sessions-list-container');
 
-if (sessionsList.length > 0) {
+// if (sessionsList.length > 0) {
 
-    let list = document.createElement('ul');
+//     let list = document.createElement('ul');
 
-    sessionsList.forEach(session => {
-        let listItem = document.createElement('li');
-        listItem.textContent = session;
-        list.appendChild(listItem);
-    });
+//     sessionsList.forEach(session => {
+//         let listItem = document.createElement('li');
+//         listItem.textContent = session;
+//         list.appendChild(listItem);
+//     });
 
-    sessionsListContainer.appendChild(list);
-} else {
-    sessionsListContainer.textContent = 'There are no visit records available.';
-}
+//     sessionsListContainer.appendChild(list);
+// } else {
+//     sessionsListContainer.textContent = 'There are no visit records available.';
+// }
 
 const inputKg = document.createElement('input');
 const inputFt = document.createElement('input');
@@ -189,3 +189,117 @@ inputKg.addEventListener('input', convert);
 
 document.body.appendChild(inputKg)
 document.body.appendChild(inputFt)
+
+const onlyRight = new Promise((resolve, reject) => {
+    const rightIf = false;
+    if(rightIf){
+        resolve('YUPIE!')
+    } else {
+        reject('NOT YUPIE!')
+    }
+})
+
+onlyRight
+    .then((rightMessage) => console.log(rightMessage))
+    .catch((errorMessage) => console.log(errorMessage))
+
+const after2Seconds = new Promise((resolve, reject) => {  
+    const right = true;  
+    if (right) {  
+        setTimeout(() => {  
+            reject('We got this after 2 seconds');  
+        }, 2000);  
+    } else {  
+        resolve('We didn\'t get anything');  
+    }  
+});  
+
+after2Seconds  
+    .then((message) => console.log(message))  
+    .catch((error) => console.log(error));  
+
+const myPromise = new Promise((resolve, reject) => {
+    const randIf = Math.floor(Math.random() * 2);
+    if(randIf){
+        resolve('WE GOT 0!')
+    } else {
+        reject('WE GOT 1!')
+    }
+})
+
+myPromise
+    .then((myMessage) => console.log(myMessage))
+    .catch((myErrorMessage) => console.log(myErrorMessage))
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((error) => console.log(error))
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((json) => console.log(json[0].title))
+    .catch((error) => console.log('A little bit a piggy'))
+
+// fetch('https://wrong-url.com')
+    // .then(response => response.json())
+    // .then(json => console.log(json))
+    // .catch(error => console.log("❌ Помилка:", error.message));
+// 9️⃣ Відправ POST-запит на https://jsonplaceholder.typicode.com/posts з будь-якими даними
+
+
+async function getTodoTitle() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const json = await response.json();
+        console.log(json.title); 
+    } catch (error) {
+        console.log(error); 
+    }
+}
+
+getTodoTitle();
+
+async function getTitle(){
+    const resolve = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+    const data = await resolve.json()
+    console.log(data.title);
+}
+
+getTitle();
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function waitThreeSeconds() {
+    console.log("⏳ Чекаємо 3 секунди...");
+    await delay(3000); // Чекаємо 3 секунди
+    console.log("We got this after 3 seconds");
+}
+
+waitThreeSeconds();
+
+async function getUser(){
+    const resolve = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await resolve.json();
+    console.log(data[0].name);
+}
+
+getUser();
+
+async function getError(){
+    try{
+        const resolve = await fetch('https://wrong-url.com');
+        if (!resolve.ok) {  
+            throw new Error('Невірний URL abo інша помилка');
+        }
+        const data = resolve.json();
+        console.log(data);
+    } catch (error){
+        console.log(error.message);
+    }
+}
+
+getError();
